@@ -1,0 +1,1 @@
+# Keep these example scripts in the examples folder.
