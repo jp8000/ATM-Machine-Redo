@@ -1,0 +1,125 @@
+
+
+
+READ txt files 'OpeningAccountsData.txt', 'UserInfo.txt'
+
+
+WHILE
+    PROMPT user to enter user id
+    IF user id is accepted proceed
+    DISPLAY matching first name and surname + banking menu options 
+        1 for Deposit
+        2 for Withdraw
+        3 for Balance
+        q for quit
+
+    ELSE DISPLAY error message 
+        RETURN to start of WHILE LOOP 
+    
+    
+    PROMPT user to select an option from banking options 
+        DISPLAY "Select from the menu: "
+
+        IF user INPUT does not match banking options 
+        DISPLAY error message 
+        RETURN to start of WHILE LOOP 
+
+    
+    IF user input = 1 (Deposit)
+        PROMPT user to select account
+            DISPLAY "Which account do you wish to deposit into: "
+            DISPLAY account type and account numbers matching user id FROM OpeningAccountData.txt
+            PROMPT user to select an account from list 
+                DISPLAY "Select an account: "
+
+                VALIDATE users selected account INPUT 
+                IF INPUT is valid continue
+                IF INPUT is not valid LOOP to start
+
+            PROMPT user to enter a deposit amount
+                DISPLAY "Enter the amount you wish to deposit: "
+                DISPLAY "You entered a valid deposit amount of: deposit amount " 
+
+                IF deposit amount is not a number
+                    DISPLAY "Invalid deposit amount. Please enter a valid number."
+                    RETURN to the beginning of the loop   
+
+            DISPLAY "Deposit successful! The new balance for account (selected account) = (new balance)
+        
+            DISPLAY account summary FOR all accounts matched to user id 
+
+            LOOP back to start
+
+
+
+
+
+
+    IF user input = 2 (Withdraw)
+        PROMPT user to select account
+            DISPLAY "Which account do you wish to withdraw from: "
+            DISPLAY account type and account numbers matching user id FROM OpeningAccountData.txt
+            PROMPT user to select an account from list 
+                DISPLAY "Select an account: "
+
+                VALIDATE users selected account INPUT 
+                IF INPUT is valid continue
+                IF INPUT is not valid LOOP to start
+
+            PROMPT user to enter a withdraw amount
+                DISPLAY "Enter the amount you wish to withdraw: "
+
+                DISPLAY "You entered a withdraw amount of: (withdraw amount) " 
+
+                IF withdraw amount is not a number
+                    DISPLAY "Invalid withdraw amount. Please enter a valid number."
+                    RETURN to the beginning of the loop  
+                IF 
+                    withdraw amount is grater than amount in account 
+                        DISPLAY " Error - Amount entered (withdraw_amount) which is greater than amount in account"
+                        RETURN to the beginning of the loop  
+
+                ELSE DISPLAY "The new balance for account (selected account) is (new balance)
+
+                DISPLAY account summary FOR all accounts matched to user id 
+
+                LOOP back to start
+
+
+    IF user input = 2 (Balance)
+        PROMPT user to select account
+            DISPLAY "Which account do you wish to check the balance of: "
+            DISPLAY account type and account numbers matching user id FROM OpeningAccountData.txt
+            PROMPT user to select an account from list 
+                DISPLAY "Select an account: "
+
+                VALIDATE users selected account INPUT 
+                IF INPUT is valid continue
+                IF INPUT is not valid LOOP to start
+
+                DISPLAY account balance FOR all accounts matched to user id 
+                DISPLAY "The opening balanmce of account (account selected) - (account number selected) = account balance
+
+
+    ELSE user input = q (Quit)
+         UPDATES New Opening Balance to 'OpeningAccountData.txt'
+
+         DISPLAYS all account infomation
+             account name
+             account type
+             account numnber
+             account balance 
+    
+        END OF PROGRAM  
+
+
+
+
+
+
+        
+
+
+
+
+        

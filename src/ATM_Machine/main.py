@@ -68,7 +68,7 @@ while True:
             # Get the deposit amount from the user
             try:
                 deposit_amount = float(input("Enter the amount you wish to deposit: "))
-                print("You entered a valid deposit amount of:", deposit_amount)
+                print("You entered a deposit amount of:", deposit_amount)
             # Error check - If the users input is unable to be converted to an integer it means the input was invalid  
             except ValueError:
                 print("Invalid deposit amount. Please enter a valid number.")
@@ -92,9 +92,6 @@ while True:
 
                             # Prints selected account infomation 
                             print_account_summary(account_types_and_numbers, accounts)
-        else:
-            # The account choice is not valid - return user to start
-            print("Wrong Input - Invalid account number selected.")
             continue
 
 
@@ -111,7 +108,7 @@ while True:
             # Get the Withdraw amount from the user
             try:
                 withdraw_amount = float(input(f"Enter the amount you wish to withdraw: "))
-                print("You entered a valid deposit amount of:", withdraw_amount )
+                print("You entered a withdraw amount of:", withdraw_amount )
             # Error check - If the users input is unable to be converted to an integer it means the input was invalid  
             except ValueError:
                     print("Invalid deposit amount. Please enter a valid number.")
@@ -139,9 +136,6 @@ while True:
 
                                 # Prints selected account infomation 
                                 print_account_summary(account_types_and_numbers, accounts)
-        else:
-            # The account choice is not valid - return user to start
-            print("Wrong Input - Invalid account number selected.")
             continue
                         
                             
@@ -168,9 +162,6 @@ while True:
                             print(f"The opening balanmce of account ({account_type} - {account_number}) = {account.opening_balance}")
                             # Prints selected account infomation 
                             print_account_summary(account_types_and_numbers, accounts)
-        else:
-                # The account choice is not valid - return user to start
-                print("Wrong Input - Invalid account number selected.")
                 continue
                     
 
