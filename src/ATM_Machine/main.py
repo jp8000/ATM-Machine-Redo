@@ -5,30 +5,31 @@ from Update_Balance import update_balance_file
 from User_Info import UserInfo
 
 
-users = UserInfo.from_file("data/UserInfo.txt") #creates a list of UserInfo objects by calling the from_file class method of the UserInfo class.
-accounts = OpeningAccountData.from_file("data/OpeningAccountsData.txt") #creates a list of OpeningAccountData objects by calling the from_file class method of the OpeningAccountData class.
+
+#creates a list of UserInfo objects by calling the from_file
+users = UserInfo.from_file("data/UserInfo.txt") 
+#creates a list of OpeningAccountData objects by calling the from_file
+accounts = OpeningAccountData.from_file("data/OpeningAccountsData.txt") 
 
 
 
 
-updates = [] # caputes the new balances but doesnt update
+updates = [] # caputes the new balances 
 
 while True:
-    # Ask the user to input their ID number
     user_id_number = input("Please enter your ID number: ")
 
-    # Check if the user's ID number matches the account owner ID
+    # Validate user's ID number matches the account owner ID
     matched = False
     for user in users:
         if user_id_number == user.account_owner_id:
             print(f"Welcome {user.first_name} {user.surname}! Please select an option: 1, 2, 3, or q.")
             matched = True
             
-
+    # if the user's ID number does not match send user to start
     if not matched:
         print("Your ID number is incorrect, please try again!")
         continue
-    # if the user's ID number does not match send user to start
 
     # Menu options
     banking_options = {
@@ -44,10 +45,10 @@ while True:
     for key, value in banking_options.items():
         print(f"{key}: {value}")
 
-    # storing the user choice inside user choice
+    # storing the user choice
     user_choice = input("Select from the menu: ")
 
-    # valid input check for the menu 
+    # if user input is invalid 
     if user_choice not in banking_options:
         print("Wrong input - Please make sure to enter a valid input.")
         continue
