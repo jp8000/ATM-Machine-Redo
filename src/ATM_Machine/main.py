@@ -6,15 +6,15 @@ from User_Info import UserInfo
 
 
 
-#creates a list of UserInfo objects by calling the from_file
+# Creates a list of UserInfo objects by calling the from_file
 users = UserInfo.from_file("data/UserInfo.txt") 
-#creates a list of OpeningAccountData objects by calling the from_file
+# Creates a list of OpeningAccountData objects by calling the from_file
 accounts = OpeningAccountData.from_file("data/OpeningAccountsData.txt") 
 
 
 
 
-updates = [] # caputes the new balances 
+updates = [] # Caputes the new balances 
 
 while True:
     user_id_number = input("Please enter your ID number: ")
@@ -26,7 +26,7 @@ while True:
             print(f"Welcome {user.first_name} {user.surname}! Please select an option: 1, 2, 3, or q.")
             matched = True
             
-    # if the user's ID number does not match send user to start
+    # If the user's ID number does not match send user to start
     if not matched:
         print("Your ID number is incorrect, please try again!")
         continue
@@ -40,15 +40,15 @@ while True:
     }
 
     
-    # assigning the menu item a key and value
+    # Assigning the menu item a key and value
     print("Please select an option: ")
     for key, value in banking_options.items():
         print(f"{key}: {value}")
 
-    # storing the user choice
+    # Storing the user choice
     user_choice = input("Select from the menu: ")
 
-    # if user input is invalid 
+    # If user input is invalid 
     if user_choice not in banking_options:
         print("Wrong input - Please make sure to enter a valid input.")
         continue
@@ -82,12 +82,12 @@ while True:
                         if account.account_number == account_number:
                             account.opening_balance = str(float(account.opening_balance) + deposit_amount)
 
-                            # prints the account plus the new opening balance
+                            # Prints the account plus the new opening balance
                             print(f"Deposit successful! The new balance for account {account_number} is {account.opening_balance}")
                             # Update the balance in the account object
                             account.opening_balance = str(float(account.opening_balance))
 
-                            # add update to the updates list
+                            # Add update to the updates list
                             update = (account.account_number, account.opening_balance)
                             updates.append(update)
 
@@ -120,7 +120,7 @@ while True:
                 if i+1 == account_choice:
                     for account in accounts:
                         if account.account_number == account_number:
-                            # checks if the user withdraw amount is greater then the current opening balance 
+                            # Checks if the user withdraw amount is greater then the current opening balance 
                             if withdraw_amount > float(account.opening_balance):
                                 print(f"Error - Amount entered {withdraw_amount} which is greater than amount in account")
 
@@ -131,7 +131,7 @@ while True:
                                 # Updates the balance in the account object
                                 account.opening_balance = str(float(account.opening_balance))
 
-                                # add update to the updates list
+                                # Add update to the updates list
                                 update = (account.account_number, account.opening_balance)
                                 updates.append(update)
 
@@ -170,11 +170,11 @@ while True:
     
     elif user_choice == "q":
         
-        # update the balance in the file
+        # Update the balance in the file
         for update in updates:
             update_balance_file('data/OpeningAccountsData.txt', update[0], update[1])
         
-        #reads OpeningAccountData.txt and stores the data inide accounts
+        # Reads OpeningAccountData.txt and stores the data inide accounts
         accounts = OpeningAccountData.from_file("data/OpeningAccountsData.txt")
         # A for loop which iterates each 'account' inside 'accounts' and prints the results 
         # The last print statement is empty to provide a space between each account for better readability
@@ -184,7 +184,7 @@ while True:
             print("Account number: ", account.account_number)
             print("Balance:", account.opening_balance)
             print()
-        break # ends the program
+        break # Ends the program
 
 
 
